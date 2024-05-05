@@ -1,0 +1,44 @@
+---
+const { title, homePage } = Astro.props;
+
+let finalTitle = title;
+
+if (homePage) {
+    finalTitle = "Vitória Tarô";
+} else {
+    finalTitle = `Vitória Tarô | ${title}`;
+}
+---
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="stylesheet" href="styles/global.css" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{finalTitle}</title>
+    </head>
+    <body
+        class="flex flex-col min-h-screen bg-neutral-100 dark:bg-neutral-900 dark:text-white"
+    >
+        <img
+            src="logo-with-text.svg"
+            alt="Vitória Tarô"
+            class="w-48 h-48 mx-auto"
+        />
+        <nav class="flex-row mx-auto mt-4 mb-8 text-2xl">
+            <a class="underline px-4 font-bold" href="/">Página Inicial</a>
+            <a class="underline px-4 font-bold" href="/catalogo"
+                >Catálogo de Serviço</a
+            >
+            <a class="underline px-4 font-bold" href="/duvidas"
+                >Dúvidas Frequentes</a
+            >
+        </nav>
+        <main class="mx-8">
+            <slot />
+            <!-- your content is injected here -->
+        </main>
+    </body>
+</html>

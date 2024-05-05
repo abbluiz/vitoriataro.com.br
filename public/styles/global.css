@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'SortsMillGoudy';
+    font-style: normal;
+    font-weight: 400;
+    src: local('SortsMillGoudy Regular'), local('SortsMillGoudy-Regular'),
+        url('/fonts/SortsMillGoudy-Regular.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'SortsMillGoudy';
+    font-style: italic;
+    font-weight: 400;
+    src: local('SortsMillGoudy Italic'), local('SortsMillGoudy-Italic'),
+        url('/fonts/SortsMillGoudy-Italic.ttf') format('truetype')
+}
+
+body {
+    font-family: 'SortsMillGoudy', serif;
+}
