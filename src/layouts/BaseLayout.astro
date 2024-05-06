@@ -1,7 +1,7 @@
 ---
 const { title, homePage } = Astro.props;
 
-let finalTitle = title;
+let finalTitle = null;
 
 if (homePage) {
     finalTitle = "Vitória Tarô";
@@ -20,25 +20,39 @@ if (homePage) {
         <title>{finalTitle}</title>
     </head>
     <body
-        class="flex flex-col min-h-screen bg-neutral-100 dark:bg-neutral-900 dark:text-white"
+        class="flex flex-col h-screen lg:max-w-2xl md:max-w-xl sm:max-w-md max-w-sm mx-auto bg-neutral-100 dark:bg-neutral-900 dark:text-white"
     >
-        <img
-            src="logo-with-text.svg"
-            alt="Vitória Tarô"
-            class="w-48 h-48 mx-auto"
-        />
-        <nav class="flex-row mx-auto mt-4 mb-8 text-2xl">
-            <a class="underline px-4 font-bold" href="/">Página Inicial</a>
-            <a class="underline px-4 font-bold" href="/catalogo"
-                >Catálogo de Serviço</a
-            >
-            <a class="underline px-4 font-bold" href="/duvidas"
-                >Dúvidas Frequentes</a
-            >
-        </nav>
-        <main class="mx-8">
+        <header>
+            <img
+                src="logo-with-text.svg"
+                alt="Vitória Tarô"
+                class="w-24 h-24 mx-auto sm:w-32 sm:h-32 lg:w-48 lg:h-48"
+            />
+            <nav class="mt-4 mb-8 lg:text-2xl md:text-xl">
+                <ul class="flex flex-row space-x-4">
+                    <li>
+                        <a class="font-bold underline" href="/">
+                            Página Inicial
+                        </a>
+                    </li>
+                    <li>
+                        <a class="font-bold underline" href="/catalogo">
+                            Catálogo de Serviço
+                        </a>
+                    </li>
+                    <li>
+                        <a class="font-bold underline" href="/duvidas">
+                            Dúvidas Frequentes
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="grow mx-auto">
             <slot />
-            <!-- your content is injected here -->
         </main>
+        <footer class="mb-8 mx-auto">
+            <p>&copy; 2024 Vitória Tarô</p>
+        </footer>
     </body>
 </html>
